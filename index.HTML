@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/CSScode1.css">
+    <title>Hawre sin Portifolio</title>
+    <link rel="icon" type="image/x-icon" href="bilder/FavIcon.png">
+
+</head>
+
+<body>
+
+<header>
+    <h1 style="font-family: 'future tech regular', sans-serif; font-size: 5em; text-align: center;">Portifolio</h1>
+</header>
+
+<section style="display: flex; justify-content: center; align-items: center;">
+    <div class="box" style="width: 400px; border-radius: 10px; box-shadow: 0 0 10px #000000; background-color: #b8dbd9; color: black; padding: 20px; margin: 0 auto;">
+        <h2 style="text-align: center;">Log In / Sign Up</h2>
+        <form id="loginForm" style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 15px;">
+                <label for="username" style="margin-bottom: 5px;">Username:</label>
+                <input type="text" id="username" name="username" required style="width: 250px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 15px;">
+                <label for="password" style="margin-bottom: 5px;">Password:</label>
+                <input type="password" id="password" name="password" required style="width: 250px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <button type="button" style="padding: 10px 20px; margin-right: 10px; border-radius: 5px; border: none; background-color: #586f7c; color: white; cursor: pointer;" onclick="logIn()">Log In</button>
+                <button type="button" style="padding: 10px 20px; border-radius: 5px; border: none; background-color: #586f7c; color: white; cursor: pointer;" onclick="signUp()">Sign Up</button>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <input type="checkbox" id="remember" style="margin-right: 10px;">
+                <label for="remember" style="color: #586f7c; font-weight: bold;">Remember me</label>
+            </div>
+        </form>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; width: 90vw; margin: 0 auto; margin-top: -270px; margin-left: 75px; margin-right: 75px; z-index: -1;">
+        <div style="background-color: #b8dbd9; width:360px; height: 210px; border-radius: 10px; box-shadow: 0 0 10px #000000;">
+            <img src="bilder/Camera.png" style="width: 350px; height: 200px; border-radius: 20px;">
+        </div>
+        <div style="background-color: #b8dbd9; width: 360px; height: 210px; border-radius: 10px; box-shadow: 0 0 10px #000000;">
+            <img src="bilder/IT.png" style="width: 350px; height: 200px; border-radius: 10px;">
+        </div>
+    </div>
+</section>
+
+<footer style="text-align: center; padding: 10px; background-color: #586f7c; color: #f4f4f9; margin-top: 20px; width: 100%;">
+    Made by Hawre - 2024
+</footer>
+<style>
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+<script>
+    function logIn() {
+        const username = document.querySelector('#username').value;
+        const password = document.querySelector('#password').value;
+        const remember = document.querySelector('#remember').checked;
+
+        if (username === '' || password === '') {
+            alert('Invalid username or password.');
+            return;
+        }
+
+        if (localStorage.getItem(username) === password) {
+            localStorage.setItem("username", username);
+            if (remember) {
+                localStorage.setItem('remember', JSON.stringify({username, password}));
+            }
+            alert('Login successful!');
+            location.href = 'scammed.html';
+        } else if (localStorage.getItem(username) === null) {
+            alert('You have to sign up first!');
+        } else {
+            alert('Invalid username or password.');
+        }
+    }
+
+    function signUp() {
+        const username = document.querySelector('#username').value;
+        const password = document.querySelector('#password').value;
+
+        if (username === '' || password === '') {
+            alert('Invalid username or password.');
+            return;
+        }
+
+        if (localStorage.getItem(username) === null) {
+            localStorage.setItem(`${username}`, password);
+            localStorage.setItem("username", username);
+            alert('Sign up successful!');
+            location.href = 'scammed.html';
+        } else {
+            alert('Username already exists.');
+        }
+    }
+
+    if (localStorage.getItem('remember')) {
+        const rememberData = JSON.parse(localStorage.getItem('remember'));
+        document.querySelector('#username').value = rememberData.username;
+        document.querySelector('#password').value = rememberData.password;
+        document.querySelector('#remember').checked = true;
+    }
+</script>
+
+</body>
+</html>
+

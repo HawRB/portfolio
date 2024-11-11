@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/CSScode1.css">
+    <title>Velkommen til min portifolio</title>
+    <link rel="icon" type="image/x-icon" href="bilder/FavIcon.png">
+</head>
+<body>
+    <header>
+        <a href="scammed.html" style="text-decoration: none;">
+            <button type="button" style="font-family: 'future tech regular', sans-serif; font-size: 5em; text-align: center; background-color: transparent; border: none; color: white; cursor: pointer;">HAWRE</button>
+        </a>
+    </header>
+    <nav style="background-color: #586f7c; padding: 10px; margin-bottom: 0; border-radius: 10px;">
+        <button class="box" style="width: 32%; height: 50px; display: inline-block; border-radius: 10px; box-shadow: 0 0 10px #000000; background-color: #2f4550; color: #f4f4f9; margin-right: 1%;">
+            <a href="bilder.html" style="text-decoration: none; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">Pictures</a>
+        </button>
+        <button class="box" style="width: 32%; height: 50px; display: inline-block; border-radius: 10px; box-shadow: 0 0 10px #000000; background-color: #2f4550; color: #f4f4f9; margin-right: 1%;">
+            <a href="Aboutus.html" style="text-decoration: none; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">Mine arbeid</a>
+        </button>
+        <button class="box" style="width: 32%; height: 50px; display: inline-block; border-radius: 10px; box-shadow: 0 0 10px #000000; background-color: #2f4550; color: #f4f4f9;">
+            <a href="ContactIM.html" style="text-decoration: none; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">Contact me</a>
+        </button>
+    </nav>
+<section style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+    <div class="welcome-container" style="width: 80%; height: 200px; border-radius: 15px; box-shadow: 0 0 15px #333; background-color: #e8f0f2; color: #333; margin-bottom: 50px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h1 id="welcomeMessage" style="font-size: 2.5em; text-align: center; margin: 0;">Hei , velkommen til min portifolio!</h1>
+    </div>
+    <footer style="text-align: center; padding: 10px; background-color: #586f7c; color: #f4f4f9; margin-top: 20px; width: 100%;">
+        Made by Hawre - 2024
+    </footer>
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</section>
+
+<script>
+    // Retrieve the username from localStorage
+    const username = localStorage.getItem("username") || "Guest"; // Default to "Guest" if no username is found
+    document.getElementById("welcomeMessage").innerHTML = `Hei ${username}, Velkommen til min portifolio!`;
+</script>
+<style>
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: linear-gradient(to bottom, #586f7c, #2f4550);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #586f7c;
+        box-shadow: inset 0 0 10px #000000;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #f4f4f9, #dddddd);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #dddddd, #bbbbbb);
+    }
+</style>
+
+</body>
+</html>
+
+
+
+
